@@ -1,4 +1,26 @@
-playSound();
+let click = new Audio('/audio/click.wav');
+playClick();
+
+document.addEventListener('DOMContentLoaded', function () {
+    var powerSwitch = document.getElementById('power-switch');
+
+    powerSwitch.addEventListener('change', function () {
+        if (powerSwitch.checked) {
+            playClick();
+            console.log('Der Schalter wurde aktiviert.');
+            playSound();
+        } else {
+            console.log('Der Schalter wurde deaktiviert.');
+            location.reload();
+        }
+    });
+
+});
+
+function playClick() {
+    click.play();
+}
+
 function playSound() {
 
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -89,14 +111,20 @@ function playSound() {
     const pressedNotes = new Map();
     let clickedKey = "";
 
+    const volumeRange = document.getElementById('volumeRange');
+
+// Create a gain node
+
     const playKey = (key) => {
         if (!keys[key]) {
             return;
         }
 
+
         const osc = audioContext.createOscillator();
         const noteGainNode = audioContext.createGain();
         noteGainNode.connect(audioContext.destination);
+
 
         const zeroGain = 0.00001;
         const maxGain = 0.5;
@@ -154,7 +182,6 @@ function playSound() {
             pressedNotes.delete(key);
         }
     };
-
     document.addEventListener("keydown", (e) => {
         const eventKey = e.key.toUpperCase();
         const key = eventKey === ";" ? "semicolon" : eventKey;
@@ -185,4 +212,5 @@ function playSound() {
     document.addEventListener("mouseup", () => {
         stopKey(clickedKey);
     });
+
 }
