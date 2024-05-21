@@ -317,3 +317,64 @@ body {
     width: 15rem;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*responsivness*/
+
+
+@media screen and (max-width: 1024px) {
+    /* Hier kommen die Anpassungen für die Hälfte eines Laptop-Fensters */
+    body {
+        font-size: 14px; /* Beispiel: Ändere die Schriftgröße auf 14px */
+    }
+
+    .login {
+        margin: 1%; /* Beispiel: Reduziere den Abstand des Login-Buttons */
+    }
+
+    #keyboard {
+        width: 35rem; /* Beispiel: Verkleinere die Breite des Keyboards */
+        padding: 2.5rem 0 0 7rem; /* Beispiel: Passe den Innenabstand des Keyboards an */
+    }
+
+
+
+    #keyboard li.white {
+        /* Beispiel: Verkleinere die Höhe der weißen Tasten */
+
+        width: 6.5%;
+    }
+
+    #keyboard li.black {
+        /* Beispiel: Verkleinere die Höhe der schwarzen Tasten */
+
+    }
+
+    #light-switch-label {
+        margin-left: 0.5rem;
+        margin-bottom: 0rem;
+        height: 100px; /* Neue Höhe des Lichtschalter-Behälters */
+        width: 3rem; /* Neue Breite des Lichtschalter-Behälters */
+    }
+
+    #light-switch-label .switch {
+        height: 40px; /* Neue Höhe des Schalters */
+        width: 20px; /* Neue Breite des Schalters */
+    }
+
+    #light-switch-label .switch:before {
+        height: 20px; /* Neue Höhe des 'ON' Zustands */
+        width: 20px; /* Neue Breite des 'ON' Zustands */
+    }
+
+    #light-switch-label .switch:after {
+        height: 20px; /* Neue Höhe des 'OFF' Zustands */
+        width: 20px; /* Neue Breite des 'OFF' Zustands */
+    }
+
+
+    #volumeBox{
+        width: 10rem;
+    }
+
+
+}
