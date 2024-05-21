@@ -1,0 +1,78 @@
+/* sortiert nach element, class, id; dann nach alphabet */
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+:root {
+    --myColor: #fbd36d;
+}
+
+/* um das hässliche blau beim anklicken der Forms in wunderschönes gelb zu verändern */
+.form-control:focus {
+    border-color: var(--myColor);
+    -webkit-box-shadow: none;
+}
+
+/* wenn checkbox geklickt wird, wird sie nicht blau sondern gelb */
+.form-check-input:checked {
+    background-color: var(--myColor);
+    border-color: var(--myColor);
+}
+
+.form-check-input:focus {
+    border-color: var(--myColor);
+    -webkit-box-shadow: none;
+}
+
+/* damit die Border nicht blau wird, wenn man außerhalb der checkbox klick */
+.form-check-input:active {
+    background-color: var(--myColor);
+}
+
+.custom-form-input {
+    border: none;
+    border-radius: unset;
+    border-bottom: solid rgba(0, 0, 0, 0.3) 1px;
+    padding: 0.7vh 0 0.7vh 0;
+}
+
+.custom-label {
+    padding: 3vh 2vw 0.2vh 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.form-check {
+    margin-top: 6vh;
+}
+
+h1 {
+    font-size: 5vh;
+}
+
+#custom-btn {
+    width: 7vw;
+    margin: 2vh 0 0.5rem 0;
+    background-color: var(--myColor);
+}
+
+#login-box {
+    width: 50vw;
+    height: 72vh;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+#signUp {
+    color: black;
+    text-decoration-color: var(--myColor);
+}
+
+
+
+
+
+
