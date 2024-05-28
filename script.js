@@ -218,8 +218,6 @@ function playSound() {
 }
 
 
-
-
 //Diagramm
 var ctx = document.getElementById('synthDiagramm').getContext('2d');
 var synthDiagramm = new Chart(ctx, {
@@ -240,18 +238,11 @@ var synthDiagramm = new Chart(ctx, {
         responsive: true,
         scales: {
             x: {
-                display: true,
-                title: {
-                    display: true,
-                    text: 'Zeit (s)'
-                }
+                display: false,
+
             },
             y: {
                 display: true,
-                title: {
-                    display: true,
-                    text: 'Wert'
-                }
             }
         }
     }
@@ -269,7 +260,6 @@ function addDataToChart(note, frequency) {
         synthDiagramm.data.labels.shift();
         synthDiagramm.data.datasets[0].data.shift();
     }
-
     synthDiagramm.update(); // Diagramm aktualisieren
 }
 
