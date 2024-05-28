@@ -47,13 +47,13 @@ function playSound() {
         P: {element: getElementByNote("D#2"), note: "D#", octaveOffset: 1},
         Ö: {element: getElementByNote("E2"), note: "E", octaveOffset: 1},
         Ä: {element: getElementByNote("F2"), note: "F", octaveOffset: 1},
-        Y: {element: getElementByNote("F#2"), note: "F#", octaveOffset: 1},
-        X: {element: getElementByNote("G2"), note: "G", octaveOffset: 1},
-        C: {element: getElementByNote("G#2"), note: "G#", octaveOffset: 1},
-        V: {element: getElementByNote("A2"), note: "A", octaveOffset: 2},
-        B: {element: getElementByNote("A#2"), note: "A#", octaveOffset: 2},
-        N: {element: getElementByNote("B2"), note: "B", octaveOffset: 2},
-        M: {element: getElementByNote("C3"), note: "C", octaveOffset: 2},
+        B: {element: getElementByNote("F#2"), note: "F#", octaveOffset: 1},
+        Y: {element: getElementByNote("G2"), note: "G", octaveOffset: 1},
+        N: {element: getElementByNote("G#2"), note: "G#", octaveOffset: 1},
+        X: {element: getElementByNote("A2"), note: "A", octaveOffset: 2},
+        M: {element: getElementByNote("A#2"), note: "A#", octaveOffset: 2},
+        C: {element: getElementByNote("B2"), note: "B", octaveOffset: 2},
+        V: {element: getElementByNote("C3"), note: "C", octaveOffset: 2},
     };
 
 
@@ -190,6 +190,7 @@ function playSound() {
             return;
         }
         playKey(key);
+        addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3));
     });
 
     document.addEventListener("keyup", (e) => {
@@ -205,6 +206,7 @@ function playSound() {
     for (const [key, {element}] of Object.entries(keys)) {
         element.addEventListener("mousedown", () => {
             playKey(key);
+            addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3));
             clickedKey = key;
         });
     }
@@ -214,3 +216,60 @@ function playSound() {
     });
 
 }
+
+
+
+
+//Diagramm
+var ctx = document.getElementById('synthDiagramm').getContext('2d');
+var synthDiagramm = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['0s', '1s', '2s', '3s', '4s', '5s', '6s'],
+        datasets: [
+            {
+                label: 'Frequenz',
+                data: [],
+                borderColor: '#e3d4a5',
+                backgroundColor: '#e3d4a5',
+                fill: false
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'Zeit (s)'
+                }
+            },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'Wert'
+                }
+            }
+        }
+    }
+
+});
+
+// Funktion zum Aktualisieren des Diagramms
+function addDataToChart(note, frequency) {
+    const currentTime = synthDiagramm.data.labels.length + 's'; // Zeit in Sekunden hinzufügen
+    synthDiagramm.data.labels.push(currentTime); // Neue Zeit hinzufügen
+    synthDiagramm.data.datasets[0].data.push(frequency); // Neue Frequenz hinzufügen
+
+    // Datenanzahl begrenzen
+    if (synthDiagramm.data.labels.length > 20) { // Hier wird die Anzahl der angezeigten Punkte auf 20 begrenzt
+        synthDiagramm.data.labels.shift();
+        synthDiagramm.data.datasets[0].data.shift();
+    }
+
+    synthDiagramm.update(); // Diagramm aktualisieren
+}
+
