@@ -229,6 +229,7 @@ var synthDiagramm = new Chart(ctx, {
     },
     options: {
         responsive: true,
+        animation: false,
         scales: {
             x: {
                 display: false, //x-Achse ausblenden
