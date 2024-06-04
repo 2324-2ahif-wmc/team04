@@ -246,11 +246,13 @@ function addDataToChart(note, frequency) {
     const currentTime = synthDiagramm.data.labels.length + 's'; // Zeit in Sekunden hinzufügen
     synthDiagramm.data.labels.push(currentTime); // Neue Zeit hinzufügen
     synthDiagramm.data.datasets[0].data.push(frequency); // Neue Frequenz hinzufügen
+    limitShownPoints();
+    synthDiagramm.update(); // Diagramm aktualisieren
+}
 
-    // Datenanzahl begrenzen
+function limitShownPoints(){
     if (synthDiagramm.data.labels.length > 20) { // Anzahl der angezeigten Punkte auf 20 begrenzt
         synthDiagramm.data.labels.shift();
         synthDiagramm.data.datasets[0].data.shift();
     }
-    synthDiagramm.update(); // Diagramm aktualisieren
 }
