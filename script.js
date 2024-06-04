@@ -212,7 +212,7 @@ function playSound() {
 
 
 //Diagramm
-var ctx = document.getElementById('synthDiagramm').getContext('2d');
+var ctx = document.getElementById('js-synthDiagramm').getContext('2d');
 var synthDiagramm = new Chart(ctx, {
     type: 'line',
     data: {

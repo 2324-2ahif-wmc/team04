@@ -162,18 +162,18 @@ a.login {
     transition: .2s ease-in-out;
 }
 
-#power-switch {
+#js-power-switch {
     position: absolute;
     opacity: 0;
 }
 
 /* Wenn Lichtschalter aktiviert -> Anderung des Aussehens */
-#power-switch:checked ~ #power-switch-label .switch {
+#js-power-switch:checked ~ #power-switch-label .switch {
     box-shadow: 0 3px 3px -1px rgba(233, 219, 176, 1), 0 0 0 1px rgba(0, 0, 0, .1), 0 0 0 2px #fff4d3, 0 0 0 3px rgba(0, 0, 0, .1);
 }
 
 /* Aussehen für ON-Zustand */
-#power-switch:checked ~ #power-switch-label .switch:before {
+#js-power-switch:checked ~ #power-switch-label .switch:before {
     height: 40px;
     top: 0;
     line-height: 40px;
@@ -183,7 +183,7 @@ a.login {
 }
 
 /* Aussehen für OFF-Zustand */
-#power-switch:checked ~ #power-switch-label .switch:after {
+#js-power-switch:checked ~ #power-switch-label .switch:after {
     height: 35px;
     bottom: 2px;
     line-height: 35px;
