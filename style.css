@@ -2,6 +2,9 @@ body{
     background-color: #202020;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-weight: 200;
+    margin: 0;
+    height: 100vh;
+    display: flex;
 }
 html {
     box-sizing: border-box;
@@ -38,11 +41,6 @@ a.login {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-}
 
 :root {
     --keyboard: hsl(0, 0%, 32%);
@@ -164,18 +162,18 @@ body {
     transition: .2s ease-in-out;
 }
 
-#js-power-switch {
+#power-switch {
     position: absolute;
     opacity: 0;
 }
 
 /* Wenn Lichtschalter aktiviert -> Anderung des Aussehens */
-#js-power-switch:checked ~ #power-switch-label .switch {
+#power-switch:checked ~ #power-switch-label .switch {
     box-shadow: 0 3px 3px -1px rgba(233, 219, 176, 1), 0 0 0 1px rgba(0, 0, 0, .1), 0 0 0 2px #fff4d3, 0 0 0 3px rgba(0, 0, 0, .1);
 }
 
 /* Aussehen für ON-Zustand */
-#js-power-switch:checked ~ #power-switch-label .switch:before {
+#power-switch:checked ~ #power-switch-label .switch:before {
     height: 40px;
     top: 0;
     line-height: 40px;
@@ -185,7 +183,7 @@ body {
 }
 
 /* Aussehen für OFF-Zustand */
-#js-power-switch:checked ~ #power-switch-label .switch:after {
+#power-switch:checked ~ #power-switch-label .switch:after {
     height: 35px;
     bottom: 2px;
     line-height: 35px;
