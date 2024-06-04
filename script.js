@@ -108,8 +108,6 @@ function playSound() {
     const pressedNotes = new Map();
     let clickedKey = "";
 
-    const volumeRange = document.getElementById('volumeRange');
-
     const playKey = (key) => {
         if (!keys[key]) {
             return;
