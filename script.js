@@ -3,7 +3,7 @@ playClick();
 
 //Schalter für Synthesizer
 document.addEventListener('DOMContentLoaded', function () {
-    var powerSwitch = document.getElementById('power-switch');
+    let powerSwitch = document.getElementById('js-power-switch');
 
     powerSwitch.addEventListener('change', function () {
         if (powerSwitch.checked) {
