@@ -1,20 +1,18 @@
 let click = new Audio('/audio/click.wav');
 playClick();
 
+//Schalter für Synthesizer
 document.addEventListener('DOMContentLoaded', function () {
-    var powerSwitch = document.getElementById('power-switch');
+    let powerSwitch = document.getElementById('js-power-switch');
 
     powerSwitch.addEventListener('change', function () {
         if (powerSwitch.checked) {
             playClick();
-            console.log('Der Schalter wurde aktiviert.');
             playSound();
         } else {
-            console.log('Der Schalter wurde deaktiviert.');
-            location.reload();
+            location.reload(); //TODO: Möglichen Ersatz für den reload finden
         }
     });
-
 });
 
 function playClick() {
@@ -55,7 +53,6 @@ function playSound() {
         C: {element: getElementByNote("B2"), note: "B", octaveOffset: 2},
         V: {element: getElementByNote("C3"), note: "C", octaveOffset: 2},
     };
-
 
     const getHz = (note = "A", octave = 4) => {
         const A4 = 440;
@@ -113,18 +110,14 @@ function playSound() {
 
     const volumeRange = document.getElementById('volumeRange');
 
-// Create a gain node
-
     const playKey = (key) => {
         if (!keys[key]) {
             return;
         }
 
-
         const osc = audioContext.createOscillator();
         const noteGainNode = audioContext.createGain();
         noteGainNode.connect(audioContext.destination);
-
 
         const zeroGain = 0.00001;
         const maxGain = 0.5;
@@ -190,7 +183,7 @@ function playSound() {
             return;
         }
         playKey(key);
-        addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3));
+        addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3)); // Diagramm aktualisieren
     });
 
     document.addEventListener("keyup", (e) => {
@@ -206,7 +199,7 @@ function playSound() {
     for (const [key, {element}] of Object.entries(keys)) {
         element.addEventListener("mousedown", () => {
             playKey(key);
-            addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3));
+            addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3)); // Diagramm aktualisieren
             clickedKey = key;
         });
     }
@@ -228,7 +221,7 @@ var synthDiagramm = new Chart(ctx, {
             {
                 label: 'Frequenz',
                 data: [],
-                borderColor: '#e3d4a5',
+                borderColor: '#e3d4a5', //schöne Farben für die Linie
                 backgroundColor: '#e3d4a5',
                 fill: false
             }
@@ -236,9 +229,10 @@ var synthDiagramm = new Chart(ctx, {
     },
     options: {
         responsive: true,
+        animation: false,
         scales: {
             x: {
-                display: false,
+                display: false, //x-Achse ausblenden
 
             },
             y: {
@@ -256,10 +250,9 @@ function addDataToChart(note, frequency) {
     synthDiagramm.data.datasets[0].data.push(frequency); // Neue Frequenz hinzufügen
 
     // Datenanzahl begrenzen
-    if (synthDiagramm.data.labels.length > 20) { // Hier wird die Anzahl der angezeigten Punkte auf 20 begrenzt
+    if (synthDiagramm.data.labels.length > 20) { // Anzahl der angezeigten Punkte auf 20 begrenzt
         synthDiagramm.data.labels.shift();
         synthDiagramm.data.datasets[0].data.shift();
     }
     synthDiagramm.update(); // Diagramm aktualisieren
 }
-
