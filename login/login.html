@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="login.css">
     <link rel="icon" type="image/x-icon" href="../images/tab-icon.png">
+    <script type="module" src="signIn.js" defer></script>
 </head>
 <body>
 <div class="h-100 w-100 d-flex align-items-center justify-content-center">
     <div id="login-box">
         <h1 class="m-0 mb-2">Synthesizer Login</h1>
-        <form>
+        <form id="sign-in-form">
             <div class="form-group">
                 <label class="custom-label flex-wrap">Email or User</label>
-                <input type="email" class="form-control custom-form-input" placeholder="𖡌 Enter your email or username">
+                <input type="email" class="form-control custom-form-input email-input" placeholder="𖡌 Enter your email or username">
                 <small id="emailHelp" class="form-text text-muted">We might not share your email with anyone else (maybe
                     we're bored, yk).</small>
             </div>
             <div class="form-group">
                 <label class="custom-label">Password</label>
-                <input type="password" class="form-control custom-form-input" placeholder="🔒 Enter your password">
+                <input type="password" class="form-control custom-form-input password-input" placeholder="🔒 Enter your password">
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

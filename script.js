@@ -13,6 +13,19 @@ document.addEventListener('DOMContentLoaded', function () {
             location.reload(); //TODO: Möglichen Ersatz für den reload finden
         }
     });
+
+    const loginOut = document.getElementById('login-out');
+    const user = localStorage.getItem('user');
+
+    if (user) {
+        loginOut.innerHTML = '<button id="logout">Logout</button>';
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('user');
+            location.reload();
+        });
+    } else {
+        loginOut.innerHTML = '<a href="login/login.html">Login</a>';
+    }
 });
 
 function playClick() {
