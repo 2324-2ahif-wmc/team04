@@ -13,15 +13,15 @@ html {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*login*/
-.login {
+.log-in-out {
     width: 100vw;
     margin: 2%;
 }
 
-a.login {
+.log-btn{
     /* box */
     background-color: white;
-    padding: 0.7% 1.2%;
+    padding: 15%;
     border-radius: 0.5rem;
 
     /* font */

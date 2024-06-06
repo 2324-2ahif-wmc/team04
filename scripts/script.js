@@ -13,6 +13,20 @@ document.addEventListener('DOMContentLoaded', function () {
             location.reload(); //TODO: Möglichen Ersatz für den reload finden
         }
     });
+
+    // Login Button
+    const loginOut = document.getElementById('log-in-out');
+    const user = localStorage.getItem('user');
+
+    if (user) {
+        loginOut.innerHTML = '<a id="logout" class="text-end log-btn">Logout</a>';
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('user');
+            location.reload();
+        });
+    } else {
+        loginOut.innerHTML = '<a href="login/login.html" class="text-end log-btn">Login</a>';
+    }
 });
 
 function playClick() {
