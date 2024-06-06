@@ -13,7 +13,6 @@ body {
 }
 
 
-
 /* um das hässliche blau beim anklicken der Forms in wunderschönes gelb zu verändern */
 .form-control:focus {
     border-color: var(--myColor);

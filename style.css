@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #202020;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-weight: 200;
@@ -6,6 +6,7 @@ body{
     height: 100vh;
     display: flex;
 }
+
 html {
     box-sizing: border-box;
 }
@@ -139,7 +140,8 @@ a.login {
     box-shadow: 0 0 50px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset,
     0 5px 15px var(--black-50);
 }
-#positioningKeyboard{
+
+#positioningKeyboard {
     position: absolute;
     top: 60%;
     left: 2%;
@@ -293,11 +295,11 @@ a.login {
     background-color: var(--keyboard);
     border: 1px solid var(--keyboard-border);
     border-radius: 1rem;
-    box-shadow: 0 0 50px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset,0  5px 15px var(--black-50);
+    box-shadow: 0 0 50px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset, 0 5px 15px var(--black-50);
 
 }
 
-#speakerImage{
+#speakerImage {
     width: 15rem;
     margin: 0.7rem 0 0 1rem;
 }
@@ -310,7 +312,8 @@ a.login {
     top: 85%;
 
 }
-#volume{
+
+#volume {
     width: 15rem;
 }
 
@@ -332,7 +335,6 @@ a.login {
         width: 35rem; /* Beispiel: Verkleinere die Breite des Keyboards */
         padding: 2.5rem 0 0 7rem; /* Beispiel: Passe den Innenabstand des Keyboards an */
     }
-
 
 
     #keyboard li.white {
@@ -369,7 +371,7 @@ a.login {
     }
 
 
-    #volumeBox{
+    #volumeBox {
         width: 10rem;
     }
 
@@ -377,7 +379,7 @@ a.login {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*chart*/
-#chart{
+#chart {
     position: absolute;
     left: 10%;
     top: 2%;

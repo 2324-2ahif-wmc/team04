@@ -250,7 +250,7 @@ function addDataToChart(note, frequency) {
     synthDiagramm.update(); // Diagramm aktualisieren
 }
 
-function limitShownPoints(){
+function limitShownPoints() {
     if (synthDiagramm.data.labels.length > 20) { // Anzahl der angezeigten Punkte auf 20 begrenzt
         synthDiagramm.data.labels.shift();
         synthDiagramm.data.datasets[0].data.shift();
