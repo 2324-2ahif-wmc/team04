@@ -11,16 +11,24 @@ html {
     box-sizing: border-box;
 }
 
+#settings-and-login {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+}
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*login*/
 .log-in-out {
-    width: 100vw;
+    /*width: 100vw;*/
+    justify-items: end;
     margin: 2%;
 }
 
 .log-btn{
     /* box */
-    background-color: white;
+    background-color: #e3d4a5;
     padding: 15%;
     border-radius: 0.5rem;
 

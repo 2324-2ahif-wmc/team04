@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const user = localStorage.getItem('user');
 
     if (user) {
-        loginOut.innerHTML = '<a id="logout" class="text-end log-btn">Logout</a>';
+        loginOut.innerHTML = '<a href="" id="logout" class="text-end log-btn">Logout</a>';
         document.getElementById('logout').addEventListener('click', () => {
             localStorage.removeItem('user');
             location.reload();
