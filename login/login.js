@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const user = localStorage.getItem('user');
 
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    togglePassword.addEventListener('click', () => {
+        // Toggle the type attribute using
+        // getAttribute() method
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // Toggle the eye and bi-eye icon
+        this.classList.toggle('bi-eye');
+    });
+
     if (user) {
         window.location.href = '../index.html';
     } else {

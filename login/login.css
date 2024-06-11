@@ -9,11 +9,6 @@ body {
     --myColor: #fbd36d;
 }
 
-#return-btn {
-}
-
-
-
 /* um das hässliche blau beim anklicken der Forms in wunderschönes gelb zu verändern */
 .form-control:focus {
     border-color: var(--myColor);
@@ -84,6 +79,12 @@ h1 {
 
 #return-btn {
     margin-top: 5vh;
+}
+
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+    color: dimgrey;
 }
 
 
