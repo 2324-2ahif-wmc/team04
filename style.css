@@ -28,15 +28,21 @@ html {
 
 .log-btn{
     /* box */
-    background-color: #e3d4a5;
+    background-color: hsl(0, 0%, 20%);
     padding: 15%;
-    border-radius: 0.5rem;
+    /*border-radius: 0.5rem;*/
 
     /* font */
-    color: black;
+    color: white;
     text-decoration: none;
     /*font-weight: bold;*/
     font-size: 1.2rem;
+}
+
+.text-end{
+    height: 3.5rem;
+    width: 5rem;
+    background-color: hsl(0, 0%, 20%);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
