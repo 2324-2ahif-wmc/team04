@@ -29,4 +29,32 @@
 
 .dropdown:hover .dropdown-content {
     display: block;
+    background-color: #3a3a3a;
 }
+
+
+.colorChanger{
+    width:2rem;
+    height: 2rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    display: flex;
+}
+
+.colorChangerContent{
+    display: none;
+}
+.colorChanger:hover .colorChangerContent{
+    display: block;
+}
+#colorOne{
+    min-width: 50%;
+    background-color: #202020;
+}
+#colorTwo{
+    min-width: 50%;
+    background-color: #e3d4a5;
+}
+
+

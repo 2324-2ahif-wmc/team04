@@ -20,29 +20,33 @@ html {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*login*/
-.log-in-out {
+#log-in-out {
     /*width: 100vw;*/
     justify-items: end;
-    margin: 2%;
+    height: 4rem;
+    width: 6rem;
 }
 
 .log-btn{
     /* box */
     background-color: hsl(0, 0%, 20%);
     padding: 15%;
-    /*border-radius: 0.5rem;*/
 
     /* font */
     color: white;
     text-decoration: none;
+
     /*font-weight: bold;*/
     font-size: 1.2rem;
+    height: 3rem;
+    width: 5rem;
 }
 
 .text-end{
-    height: 3.5rem;
-    width: 5rem;
     background-color: hsl(0, 0%, 20%);
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
