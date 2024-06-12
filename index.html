@@ -10,6 +10,7 @@
     <link href="images/tab-icon.png" rel="icon" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Einbindung von chart.js -->
     <script defer src="scripts/script.js"></script>
+    <script defer src="userSettings/colorSettings.js"></script>
 </head>
 <body>
 
@@ -20,13 +21,18 @@
             <img height="40" src="images/settingSymbol.png" width="40">
         </button>
         <div class="dropdown-content">
-            <a href="#"><div class="colorChanger">
-                <div id="colorOne"></div>
-                <div id="colorTwo"></div>
-            </div></a>
-            <div class="colorChangerContent"></div>
-            <a href="#"><img src="image2.jpg"></a>
-            <a href="#"><img src="image3.jpg"></a>
+
+            <span id="js-colorChanger">
+                <div class="colorChanger">
+                    <div class="minWidth" id="colorOne"></div>
+                    <div class="minWidth" id="colorTwo"></div>
+                </div>
+            </span>
+            <div id="js-colorChangerContent" class="hidden">
+
+            </div>
+            <span><img src="image2.jpg"></span>
+            <span><img src="image3.jpg"></span>
         </div>
     </div>
     <!-- Login/out Button -->
