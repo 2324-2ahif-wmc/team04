@@ -10,17 +10,17 @@
     <link href="images/tab-icon.png" rel="icon" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Einbindung von chart.js -->
     <script defer src="scripts/script.js"></script>
-    <script defer src="userSettings/colorSettings.js"></script>
+    <script defer src="userSettings/Settings.js"></script>
 </head>
 <body>
 
 <div id="settings-and-login">
     <!-- Settings -->
     <div class="dropdown">
-        <button class="dropDown-btn">
+        <button id="js-dd-button" class="dropDown-btn">
             <img height="40" src="images/settingSymbol.png" width="40">
         </button>
-        <div class="dropdown-content">
+        <div id="js-dd-content" class="dropdown-content hidden">
 
             <span id="js-colorChanger">
                 <div class="colorChanger">
