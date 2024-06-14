@@ -19,11 +19,22 @@ settingButton.addEventListener('click', () => {
 
 colorChanger.addEventListener('click', () => {
     if (ddColorContentIsShowing) {
-        colorChangerContent.classList.add('hidden');
+        colorChangerContent.classList.add('hidden'); 
     }
     else{
         colorChangerContent.classList.remove('hidden');
     }
+
+    let pinkBackground= document.getElementById('pinkBackground');
+    let blueBackground= document.getElementById('blueBackground');
+    let greenBackground= document.getElementById('greenBackground');
+
+    document.querySelectorAll(".backgroundColor_option").forEach(button => {
+        button.addEventListener("click", function () {
+            const color = this.getAttribute("data-color");
+            document.body.style.backgroundColor = color;
+        });
+    });
 
     ddColorContentIsShowing = !ddColorContentIsShowing;
 })
