@@ -25,15 +25,27 @@ colorChanger.addEventListener('click', () => {
         colorChangerContent.classList.remove('hidden');
     }
 
-    let pinkBackground= document.getElementById('pinkBackground');
-    let blueBackground= document.getElementById('blueBackground');
-    let greenBackground= document.getElementById('greenBackground');
+    const colorOne= document.getElementById('colorOne');
+    const colorTwo= document.getElementById('colorTwo');
+    const keyboard = document.getElementById('keyboard');
+    const loginBtnText= document.getElementsByClassName('log-btn');
 
     document.querySelectorAll(".backgroundColor_option").forEach(button => {
-        button.addEventListener("click", function () {
+        button.addEventListener('click',  function () {
             const color = this.getAttribute("data-color");
             document.body.style.backgroundColor = color;
+            colorOne.style.backgroundColor= color;
         });
+    });
+    document.querySelectorAll(".sideColor").forEach(button=>{
+        button.addEventListener('click',function (){
+            const color = this.getAttribute("data-color");
+            colorTwo.style.backgroundColor=color;
+            keyboard.style.backgroundColor=color;
+            loginBtnText.style.color=color;
+
+        })
+
     });
 
     ddColorContentIsShowing = !ddColorContentIsShowing;

@@ -29,7 +29,8 @@ html {
 
 .log-btn{
     /* box */
-    background-color: hsl(0, 0%, 20%);
+    background-color:   hsl(0, 0%, 20%);
+
     padding: 15%;
 
     /* font */
@@ -392,6 +393,11 @@ html {
     #volumeBox {
         width: 10rem;
     }
+
+  /*  #power-switch-label{
+        height: 50%;
+        width: auto;
+    }*/
 
 }
 

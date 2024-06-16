@@ -270,3 +270,15 @@ function limitShownPoints() {
         synthDiagramm.data.datasets[0].data.shift();
     }
 }
+
+document.querySelectorAll(".sideColor").forEach(button=>{
+    button.addEventListener('click',function (){
+        const color = this.getAttribute("data-color");
+
+        synthDiagramm.data.datasets[0].borderColor = color;
+        synthDiagramm.data.datasets[0].backgroundColor = color;
+        synthDiagramm.update();
+    })
+
+});
+
