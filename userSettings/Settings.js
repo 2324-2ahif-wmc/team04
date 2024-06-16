@@ -43,7 +43,6 @@ colorChanger.addEventListener('click', () => {
             colorTwo.style.backgroundColor=color;
             keyboard.style.backgroundColor=color;
             loginBtnText.style.color=color;
-
         })
 
     });
