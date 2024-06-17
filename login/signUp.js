@@ -20,7 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const birthday = document.getElementsByClassName('birthday-input')[0].value;
         const password = document.getElementsByClassName('password-input')[0].value;
 
-        const response = await fetch(endpoint, {
+        const users = await getUsers();
+        let response = undefined;
+        if (users.some(user => user.email === email)) {
+            alert('Email is already in use');
+            return;
+        }
+
+        response = await fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,5 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert('sign up failed');
         }
+
+
     });
+
+    async function getUsers() {
+        const response = await fetch(endpoint);
+        return await response.json();
+    }
 });
