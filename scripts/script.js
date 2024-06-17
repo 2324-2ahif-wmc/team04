@@ -2,7 +2,7 @@ let click = new Audio('/audio/click.wav');
 playClick();
 
 //Schalter für Synthesizer
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () { //wenn alles geladen ist
     let powerSwitch = document.getElementById('js-power-switch');
 
     powerSwitch.addEventListener('change', function () {
@@ -35,12 +35,12 @@ function playClick() {
 
 function playSound() {
 
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)(); // tool um Audio zu bekommen. Ersteres ist die neue Variante
 
-    const getElementByNote = (note) =>
-        note && document.querySelector(`[note="${note}"]`);
+    const getElementByNote = (note) => //gibt Element zurück
+        note && document.querySelector(`[note="${note}"]`); // Pfüft ob note einen Wert hat nach '&&' sucht es im HTML ein Element mit dem Attribut 'note'
 
-    const keys = {
+    const keys = { //Elemente werden Elemente, Noten und Oktaven zugewiesen
         A: {element: getElementByNote("C"), note: "C", octaveOffset: 0},
         W: {element: getElementByNote("C#"), note: "C#", octaveOffset: 0},
         S: {element: getElementByNote("D"), note: "D", octaveOffset: 0},
@@ -68,86 +68,86 @@ function playSound() {
         V: {element: getElementByNote("C3"), note: "C", octaveOffset: 2},
     };
 
-    const getHz = (note = "A", octave = 4) => {
-        const A4 = 440;
-        let N = 0;
+    const getHz = (note = "A", octave = 4) => { //the note A and the octave 4 are marked as the norm
+        const A4 = 440; //hz of the norm
+        let halfNotes = 0; //half notes away from A
         switch (note) {
             default:
             case "A":
-                N = 0;
+                halfNotes = 0;
                 break;
             case "A#":
             case "Bb":
-                N = 1;
+                halfNotes = 1;
                 break;
             case "B":
-                N = 2;
+                halfNotes = 2;
                 break;
             case "C":
-                N = 3;
+                halfNotes = 3;
                 break;
             case "C#":
             case "Db":
-                N = 4;
+                halfNotes = 4;
                 break;
             case "D":
-                N = 5;
+                halfNotes = 5;
                 break;
             case "D#":
             case "Eb":
-                N = 6;
+                halfNotes = 6;
                 break;
             case "E":
-                N = 7;
+                halfNotes = 7;
                 break;
             case "F":
-                N = 8;
+                halfNotes = 8;
                 break;
             case "F#":
             case "Gb":
-                N = 9;
+                halfNotes = 9;
                 break;
             case "G":
-                N = 10;
+                halfNotes = 10;
                 break;
             case "G#":
             case "Ab":
-                N = 11;
+                halfNotes = 11;
                 break;
         }
-        N += 12 * (octave - 4);
-        return A4 * Math.pow(2, N / 12);
+        halfNotes += 12 * (octave - 4); //adds the octav offset
+        return A4 * Math.pow(2, halfNotes / 12); //calculates the hz f.g. if halfNotes=12 it would be 440 * 2^12/12 = 880
     };
 
     const pressedNotes = new Map();
     let clickedKey = "";
 
     const playKey = (key) => {
-        if (!keys[key]) {
+        if (!keys[key]) { //checks if the parameter is in keys
             return;
         }
 
-        const osc = audioContext.createOscillator();
-        const noteGainNode = audioContext.createGain();
-        noteGainNode.connect(audioContext.destination);
+        const osc = audioContext.createOscillator(); //an Oscillator creates a sound wave which can be perceived as a tone
+        const noteGainNode = audioContext.createGain(); //GainNode to control the volume
+        noteGainNode.connect(audioContext.destination); //Connecting GainNode with audioContext in order to create a tone
 
-        const zeroGain = 0.00001;
-        const maxGain = 0.5;
-        const sustainedGain = 0.001;
+        const zeroGain = 0.00001; //create a gain value for no tone
+        const maxGain = 0.5; //one for maximal volume
+        const sustainedGain = 0.001; //and one in between
 
         noteGainNode.gain.value = zeroGain;
 
-        const setAttack = () =>
-            noteGainNode.gain.exponentialRampToValueAtTime(
+        const setAttack = () => //give the audio max volume
+            noteGainNode.gain.exponentialRampToValueAtTime( //set the volume and the end time
                 maxGain,
                 audioContext.currentTime + 0.01
             );
-        const setDecay = () =>
+        const setDecay = () => //give the audio a bit of volume
             noteGainNode.gain.exponentialRampToValueAtTime(
                 sustainedGain,
                 audioContext.currentTime + 1
             );
-        const setRelease = () =>
+        const setRelease = () => //give the audio no volume
             noteGainNode.gain.exponentialRampToValueAtTime(
                 zeroGain,
                 audioContext.currentTime + 2
@@ -221,6 +221,8 @@ function playSound() {
     });
 
 }
+
+
 
 
 //Diagramm
