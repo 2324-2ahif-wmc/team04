@@ -160,34 +160,35 @@ function playSound() {
         osc.connect(noteGainNode);
         osc.type = "triangle";
 
-        const freq = getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3);
+        const freq = getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3); //calculate frequency
 
-        if (Number.isFinite(freq)) {
+        if (Number.isFinite(freq)) { //check if frequency is valid if yes you give the oscillator the value
             osc.frequency.value = freq;
         }
 
-        keys[key].element.classList.add("pressed");
+        keys[key].element.classList.add("pressed"); //add class pressed to the HTML element for the visual aspects
         pressedNotes.set(key, osc);
-        pressedNotes.get(key).start();
+        pressedNotes.get(key).start(); //the oscillator gets saved and started in pressedNotes
     };
 
     const stopKey = (key) => {
-        if (!keys[key]) {
+        if (!keys[key]) { //checks if the parameter is in keys
             return;
         }
 
-        keys[key].element.classList.remove("pressed");
-        const osc = pressedNotes.get(key);
+        keys[key].element.classList.remove("pressed"); //remove class pressed from the HTML element for the visual aspects
+        const osc = pressedNotes.get(key); //gets the value
 
-        if (osc) {
+        if (osc) { //stops the oscillator after two seconds
             setTimeout(() => {
                 osc.stop();
             }, 2000);
 
-            pressedNotes.delete(key);
+            pressedNotes.delete(key); //deletes the key out of the map
         }
     };
-    document.addEventListener("keydown", (e) => {
+
+    document.addEventListener("keydown", (e) => { //e = information about key-down event
         const eventKey = e.key.toUpperCase();
         const key = eventKey === ";" ? "semicolon" : eventKey;
 
