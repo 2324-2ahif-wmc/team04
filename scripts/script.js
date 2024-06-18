@@ -160,34 +160,35 @@ function playSound() {
         osc.connect(noteGainNode);
         osc.type = "triangle";
 
-        const freq = getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3);
+        const freq = getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3); //calculate frequency
 
-        if (Number.isFinite(freq)) {
+        if (Number.isFinite(freq)) { //check if frequency is valid if yes you give the oscillator the value
             osc.frequency.value = freq;
         }
 
-        keys[key].element.classList.add("pressed");
+        keys[key].element.classList.add("pressed"); //add class pressed to the HTML element for the visual aspects
         pressedNotes.set(key, osc);
-        pressedNotes.get(key).start();
+        pressedNotes.get(key).start(); //the oscillator gets saved and started in pressedNotes
     };
 
     const stopKey = (key) => {
-        if (!keys[key]) {
+        if (!keys[key]) { //checks if the parameter is in keys
             return;
         }
 
-        keys[key].element.classList.remove("pressed");
-        const osc = pressedNotes.get(key);
+        keys[key].element.classList.remove("pressed"); //remove class pressed from the HTML element for the visual aspects
+        const osc = pressedNotes.get(key); //gets the value
 
-        if (osc) {
+        if (osc) { //stops the oscillator after two seconds
             setTimeout(() => {
                 osc.stop();
             }, 2000);
 
-            pressedNotes.delete(key);
+            pressedNotes.delete(key); //deletes the key out of the map
         }
     };
-    document.addEventListener("keydown", (e) => {
+
+    document.addEventListener("keydown", (e) => { //e = information about key-down event
         const eventKey = e.key.toUpperCase();
         const key = eventKey === ";" ? "semicolon" : eventKey;
 
@@ -233,7 +234,7 @@ var synthDiagramm = new Chart(ctx, {
         labels: ['0s', '1s', '2s', '3s', '4s', '5s', '6s'],
         datasets: [
             {
-                label: 'Frequenz',
+                label: 'Noten',
                 data: [],
                 borderColor: '#e3d4a5', //schöne Farben für die Linie
                 backgroundColor: '#e3d4a5',
@@ -251,6 +252,42 @@ var synthDiagramm = new Chart(ctx, {
             },
             y: {
                 display: true,
+                ticks:{
+                    callback:function (value){
+                        const noteLabels = {
+                            0: 'C',
+                            0.5: 'C#',
+                            1: 'D',
+                            1.5: 'D#',
+                            2: 'E',
+                            3: 'F',
+                            3.5: 'F#',
+                            4: 'G',
+                            4.5: 'G#',
+                            5: 'A',
+                            5.5: 'A#',
+                            6: 'B',
+                            7: 'C2',
+                            7.5: 'C#2',
+                            8: 'D2',
+                            8.5: 'D#2',
+                            9: 'E2',
+                            10: 'F2',
+                            10.5: 'F#2',
+                            11: 'G2',
+                            11.5: 'G#2',
+                            12: 'A2',
+                            12.5: 'A#2',
+                            13: 'B2',
+                            14: 'C23'
+
+                        };
+                        return noteLabels[value] || value;
+                    },
+                    min: 0,
+                    max: 14,
+                    stepSize: 0.5
+                }
             }
         }
     }
@@ -261,7 +298,37 @@ var synthDiagramm = new Chart(ctx, {
 function addDataToChart(note, frequency) {
     const currentTime = synthDiagramm.data.labels.length + 's'; // Zeit in Sekunden hinzufügen
     synthDiagramm.data.labels.push(currentTime); // Neue Zeit hinzufügen
-    synthDiagramm.data.datasets[0].data.push(frequency); // Neue Frequenz hinzufügen
+
+    const noteIndices = {
+        'A': 0,
+        'W': 0.5,
+        'S': 1,
+        'E':1.5,
+        'D':2,
+        'F':3,
+        'T':3.5,
+        'G':4,
+        'Z':4.5,
+        'H':5,
+        'U':5.5,
+        'J': 6,
+        'K':7,
+        'O':7.5,
+        'L':8,
+        'P':8.5,
+        'Ö':9,
+        'Ä':10,
+        'B':10.5,
+        'Y':11,
+        'N':11.5,
+        'X':12,
+        'M':12.5,
+        'C':13,
+        'V':14
+    };
+
+    const noteIndex= noteIndices[note];
+    synthDiagramm.data.datasets[0].data.push(noteIndex); // Neue Frequenz hinzufügen
     limitShownPoints();
     synthDiagramm.update(); // Diagramm aktualisieren
 }
