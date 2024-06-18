@@ -157,11 +157,11 @@ function playSound() {
         setDecay();
         setRelease();
 
-        document.getElementById('slider').addEventListener('input', changeVolume );
+        /*document.getElementById('slider').addEventListener('input', changeVolume );
 
         function changeVolume(){
             noteGainNode.gain.value = this.value;
-        }
+        }*/
 
         osc.connect(noteGainNode);
         osc.type = "triangle";
@@ -265,6 +265,7 @@ var synthDiagramm = new Chart(ctx, {
                             1: 'D',
                             1.5: 'D#',
                             2: 'E',
+                            2.5: 'E/F',
                             3: 'F',
                             3.5: 'F#',
                             4: 'G',
@@ -272,11 +273,13 @@ var synthDiagramm = new Chart(ctx, {
                             5: 'A',
                             5.5: 'A#',
                             6: 'B',
+                            6.5:'B/C2',
                             7: 'C2',
                             7.5: 'C#2',
                             8: 'D2',
                             8.5: 'D#2',
                             9: 'E2',
+                            9.5: 'E2/F2',
                             10: 'F2',
                             10.5: 'F#2',
                             11: 'G2',
@@ -284,7 +287,8 @@ var synthDiagramm = new Chart(ctx, {
                             12: 'A2',
                             12.5: 'A#2',
                             13: 'B2',
-                            14: 'C23'
+                            13.5: 'B2/C3',
+                            14: 'C3'
 
                         };
                         return noteLabels[value] || value;
