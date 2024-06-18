@@ -1,3 +1,5 @@
+
+
 let click = new Audio('/audio/click.wav');
 playClick();
 
@@ -157,6 +159,10 @@ function playSound() {
         setDecay();
         setRelease();
 
+        document.getElementById('slider').addEventListener('change', () => {
+            noteGainNode.gain.value = this.value;
+        }
+
         osc.connect(noteGainNode);
         osc.type = "triangle";
 
@@ -169,8 +175,9 @@ function playSound() {
         keys[key].element.classList.add("pressed"); //add class pressed to the HTML element for the visual aspects
         pressedNotes.set(key, osc);
         pressedNotes.get(key).start(); //the oscillator gets saved and started in pressedNotes
-    };
 
+
+    };
     const stopKey = (key) => {
         if (!keys[key]) { //checks if the parameter is in keys
             return;
@@ -347,6 +354,7 @@ document.querySelectorAll(".sideColor").forEach(button=>{
         synthDiagramm.data.datasets[0].backgroundColor = color;
         synthDiagramm.update();
     })
+
 
 });
 
