@@ -157,14 +157,15 @@ function playSound() {
         setDecay();
         setRelease();
 
+        /*
         document.getElementById('slider').addEventListener('input', changeVolume);
 
         function changeVolume(){
             noteGainNode.gain.value = this.value;
         }
-
-        osc.connect(noteGainNode);
-        osc.type = "triangle";
+        */
+        osc.connect(noteGainNode); //connects out and input
+        osc.type = "triangle"; //waveform of oscillator set on triangle
 
         const freq = getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3); //calculate frequency
 
@@ -196,7 +197,7 @@ function playSound() {
     };
 
     document.addEventListener("keydown", (e) => { //e = information about key-down event
-        const key =  e.key.toUpperCase();
+        const key = e.key.toUpperCase();
 
         if (!key || pressedNotes.get(key)) {
             return;
@@ -231,8 +232,6 @@ function playSound() {
 }
 
 
-
-
 //Diagramm
 var ctx = document.getElementById('js-synthDiagramm').getContext('2d');
 var synthDiagramm = new Chart(ctx, {
@@ -259,8 +258,8 @@ var synthDiagramm = new Chart(ctx, {
             },
             y: {
                 display: true,
-                ticks:{
-                    callback:function (value){
+                ticks: {
+                    callback: function (value) {
                         const noteLabels = {
                             '-1': 'B',
                             '-0.5': 'B/C',
@@ -277,7 +276,7 @@ var synthDiagramm = new Chart(ctx, {
                             5: 'A',
                             5.5: 'A#',
                             6: 'B',
-                            6.5:'B/C2',
+                            6.5: 'B/C2',
                             7: 'C2',
                             7.5: 'C#2',
                             8: 'D2',
@@ -317,31 +316,31 @@ function addDataToChart(note, frequency) {
         'A': 0,
         'W': 0.5,
         'S': 1,
-        'E':1.5,
-        'D':2,
-        'F':3,
-        'T':3.5,
-        'G':4,
-        'Z':4.5,
-        'H':5,
-        'U':5.5,
+        'E': 1.5,
+        'D': 2,
+        'F': 3,
+        'T': 3.5,
+        'G': 4,
+        'Z': 4.5,
+        'H': 5,
+        'U': 5.5,
         'J': 6,
-        'K':7,
-        'O':7.5,
-        'L':8,
-        'P':8.5,
-        'Ö':9,
-        'Ä':10,
-        'B':10.5,
-        'Y':11,
-        'N':11.5,
-        'X':12,
-        'M':12.5,
-        'C':13,
-        'V':14
+        'K': 7,
+        'O': 7.5,
+        'L': 8,
+        'P': 8.5,
+        'Ö': 9,
+        'Ä': 10,
+        'B': 10.5,
+        'Y': 11,
+        'N': 11.5,
+        'X': 12,
+        'M': 12.5,
+        'C': 13,
+        'V': 14
     };
 
-    const noteIndex= noteIndices[note];
+    const noteIndex = noteIndices[note];
     synthDiagramm.data.datasets[0].data.push(noteIndex); // Neue Frequenz hinzufügen
     limitShownPoints();
     synthDiagramm.update(); // Diagramm aktualisieren
@@ -354,8 +353,8 @@ function limitShownPoints() {
     }
 }
 
-document.querySelectorAll(".sideColor").forEach(button=>{
-    button.addEventListener('click',function (){
+document.querySelectorAll(".sideColor").forEach(button => {
+    button.addEventListener('click', function () {
         const color = this.getAttribute("data-color");
 
         synthDiagramm.data.datasets[0].borderColor = color;
