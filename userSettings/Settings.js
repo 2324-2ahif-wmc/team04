@@ -25,7 +25,7 @@ colorChanger.addEventListener('click', () => {
     const colorOne = document.getElementById('colorOne');
     const colorTwo = document.getElementById('colorTwo');
     const keyboard = document.getElementById('keyboard');
-    const loginBtnText = document.getElementsByClassName('log-btn');
+    const volumeBox= document.getElementById('volumeBox');
 
     document.querySelectorAll(".backgroundColor_option").forEach(button => {
         button.addEventListener('click', function () {
@@ -38,12 +38,15 @@ colorChanger.addEventListener('click', () => {
         button.addEventListener('click', function () {
             const color = this.getAttribute("data-color");
             colorTwo.style.backgroundColor = color;
+           
             if (color === '#e3d4a5') {
                 keyboard.style.backgroundColor = '#525252';
+                volumeBox.style.backgroundColor='#525252';
             } else {
                 keyboard.style.backgroundColor = color;
+                volumeBox.style.backgroundColor= color;
             }
-            loginBtnText.style.color = color;
+
         })
 
     });
