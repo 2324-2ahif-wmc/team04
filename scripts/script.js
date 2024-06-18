@@ -115,7 +115,7 @@ function playSound() {
                 halfNotes = 11;
                 break;
         }
-        halfNotes += 12 * (octave - 4); //adds the octav offset
+        halfNotes += 12 * (octave - 4); //adds the octave offset
         return A4 * Math.pow(2, halfNotes / 12); //calculates the hz f.g. if halfNotes=12 it would be 440 * 2^12/12 = 880
     };
 
@@ -157,11 +157,11 @@ function playSound() {
         setDecay();
         setRelease();
 
-        /*document.getElementById('slider').addEventListener('input', changeVolume );
+        document.getElementById('slider').addEventListener('input', changeVolume);
 
         function changeVolume(){
             noteGainNode.gain.value = this.value;
-        }*/
+        }
 
         osc.connect(noteGainNode);
         osc.type = "triangle";
@@ -202,6 +202,7 @@ function playSound() {
             return;
         }
         playKey(key);
+        
         addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3)); // Diagramm aktualisieren
     });
 
@@ -217,6 +218,7 @@ function playSound() {
     for (const [key, {element}] of Object.entries(keys)) {
         element.addEventListener("mousedown", () => {
             playKey(key);
+
             addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3)); // Diagramm aktualisieren
             clickedKey = key;
         });
