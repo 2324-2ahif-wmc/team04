@@ -1,8 +1,9 @@
 let click = new Audio('/audio/click.wav');
 playClick();
 
+
 //Schalter für Synthesizer
-document.addEventListener('DOMContentLoaded', function () { //wenn alles geladen ist
+document.addEventListener('DOMContentLoaded',function () { //wenn alles geladen ist
     let powerSwitch = document.getElementById('js-power-switch');
 
     powerSwitch.addEventListener('change', function () {

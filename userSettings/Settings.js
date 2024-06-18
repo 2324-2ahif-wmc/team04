@@ -32,6 +32,22 @@ colorChanger.addEventListener('click', () => {
             const color = this.getAttribute("data-color");
             document.body.style.backgroundColor = color;
             colorOne.style.backgroundColor = color;
+
+            // Hintergrundfarbe in der db.json speichern
+            fetch('http://localhost:3000/backgrounds', {
+                method: 'PATCH', // PATCH, um das vorhandene Objekt zu aktualisieren
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ backgroundColor: color })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Erfolgreich gespeichert:', data);
+                })
+                .catch(error => {
+                    console.error('Fehler beim Speichern:', error);
+                });
         });
     });
     document.querySelectorAll(".sideColor").forEach(button => {
@@ -53,5 +69,9 @@ colorChanger.addEventListener('click', () => {
 
     ddColorContentIsShowing = !ddColorContentIsShowing;
 })
+
+
+
+
 
 
