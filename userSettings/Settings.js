@@ -10,10 +10,9 @@ settingButton.addEventListener('click', () => {
     if (ddGeneralContent) {
         settingContent.classList.add('hidden');
     } else {
-
+        settingContent.classList.remove('hidden');
     }
     ddGeneralContent = !ddGeneralContent;
-
 })
 
 colorChanger.addEventListener('click', () => {
