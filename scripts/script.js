@@ -262,6 +262,8 @@ var synthDiagramm = new Chart(ctx, {
                 ticks:{
                     callback:function (value){
                         const noteLabels = {
+                            '-1': 'B',
+                            '-0.5': 'B/C',
                             0: 'C',
                             0.5: 'C#',
                             1: 'D',
@@ -290,8 +292,9 @@ var synthDiagramm = new Chart(ctx, {
                             12.5: 'A#2',
                             13: 'B2',
                             13.5: 'B2/C3',
-                            14: 'C3'
-
+                            14: 'C3',
+                            14.5: 'C#3',
+                            15: 'D3'
                         };
                         return noteLabels[value] || value;
                     },
