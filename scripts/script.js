@@ -189,8 +189,7 @@ function playSound() {
     };
 
     document.addEventListener("keydown", (e) => { //e = information about key-down event
-        const eventKey = e.key.toUpperCase();
-        const key = eventKey === ";" ? "semicolon" : eventKey;
+        const key =  e.key.toUpperCase();
 
         if (!key || pressedNotes.get(key)) {
             return;
