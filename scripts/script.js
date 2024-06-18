@@ -1,5 +1,3 @@
-
-
 let click = new Audio('/audio/click.wav');
 playClick();
 
@@ -208,8 +206,7 @@ function playSound() {
     });
 
     document.addEventListener("keyup", (e) => {
-        const eventKey = e.key.toUpperCase();
-        const key = eventKey === ";" ? "semicolon" : eventKey;
+        const key = e.key.toUpperCase();
 
         if (!key) {
             return;
