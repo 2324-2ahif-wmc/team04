@@ -159,7 +159,9 @@ function playSound() {
         setDecay();
         setRelease();
 
-        document.getElementById('slider').addEventListener('change', () => {
+        document.getElementById('slider').addEventListener('input', changeVolume );
+
+        function changeVolume(){
             noteGainNode.gain.value = this.value;
         }
 
