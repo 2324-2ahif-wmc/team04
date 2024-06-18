@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const users = await response.json();
                 const user = users.find((user) => user.email === email && user.password === password);
                 if (user) {
-                    const { password, ...userWithoutPassword } = user;
+                    const {password, ...userWithoutPassword} = user;
                     localStorage.setItem('user', JSON.stringify(userWithoutPassword));
                     window.location.href = '../index.html';
                 } else {
