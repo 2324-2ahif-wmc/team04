@@ -1,5 +1,60 @@
 {
   "users": [
-    
+    {
+      "id": "3317",
+      "email": "kathi@kathi.com",
+      "username": "Kathi",
+      "birthday": "08.02.2007",
+      "password": "Katharina"
+    },
+    {
+      "id": "c416",
+      "email": "david@david.com",
+      "username": "David",
+      "birthday": "21.10.2007",
+      "password": "David"
+    },
+    {
+      "id": "f37a",
+      "email": "flora@mail.com",
+      "username": "Flora",
+      "birthday": "11.08.2008",
+      "password": "Flora"
+    },
+    {
+      "id": "66f4",
+      "email": "lena@lena.com",
+      "username": "Lena",
+      "birthday": "24.06.2008",
+      "password": "Lena"
+    },
+    {
+      "id": "00b6",
+      "email": "stoetti@mail.com",
+      "username": "Robert",
+      "birthday": "14.12.1611",
+      "password": "CIstCool"
+    },
+    {
+      "id": "1cfb",
+      "email": "erni@erni.com",
+      "username": "Björn",
+      "birthday": "1234567890ß",
+      "password": "Ernecker"
+    },
+    {
+      "id": "96b5",
+      "email": "azra@azra.com",
+      "username": "Azra",
+      "birthday": "15.14.1344",
+      "password": "Azra"
+    },
+    {
+      "id": "67b8",
+      "email": "thc@cbd.com",
+      "username": "David",
+      "birthday": "21.10.2007",
+      "password": "Favid"
+    }
   ]
 }

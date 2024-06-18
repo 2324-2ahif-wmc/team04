@@ -21,13 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementsByClassName('password-input')[0].value;
 
         const users = await getUsers();
-        let response = undefined;
         if (users.some(user => user.email === email)) {
             alert('Email is already in use');
             return;
         }
 
-        response = await fetch(endpoint, {
+        const response = await fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
