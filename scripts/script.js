@@ -202,7 +202,7 @@ function playSound() {
             return;
         }
         playKey(key);
-        
+
         addDataToChart(key, getHz(keys[key].note, (keys[key].octaveOffset || 0) + 3)); // Diagramm aktualisieren
     });
 
