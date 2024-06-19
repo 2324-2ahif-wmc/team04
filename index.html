@@ -132,7 +132,7 @@
                     const color = data.backgroundColor;
                     if (color) {
                         document.body.style.backgroundColor = color;
-                        // document.getElementById('colorOne').style.backgroundColor = color;
+                        document.getElementById('colorOne').style.backgroundColor = color;
                     }
                 })
                 .catch(error => {
@@ -140,7 +140,28 @@
                 });
         }
 
-        document.addEventListener('DOMContentLoaded',loadBackgroundColor);
+        function loadSideColor() {
+            fetch('http://localhost:3000/sideColors')
+                .then(response => response.json())
+                .then(data => {
+                    const color = data.sideColor;
+                    if (color) {
+                        document.getElementById('keyboard').style.backgroundColor = color;
+                        document.getElementById('volumeBox').style.backgroundColor = color;
+                        document.getElementById('colorTwo').style.backgroundColor = color;
+                        // Farbe Notenlabel
+                    }
+                })
+                .catch(error => {
+                    console.error('Fehler beim Laden des Side Colors:', error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBackgroundColor();
+            loadSideColor();
+        });
+
     </script>
 </head>
 </html>

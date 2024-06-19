@@ -1,7 +1,50 @@
 {
   "users": [],
   "backgrounds": {
-    "item": {},
-    "backgroundColor": "lightpink"
+    "item": {
+      "item": {
+        "item": {
+          "item": {},
+          "backgroundColor": "lightpink"
+        },
+        "backgroundColor": "lightgreen"
+      },
+      "backgroundColor": "lightblue"
+    },
+    "backgroundColor": "lightgreen"
+  },
+  "sideColors": {
+    "item": {
+      "item": {
+        "item": {
+          "item": {
+            "item": {
+              "item": {
+                "item": {
+                  "item": {
+                    "item": {
+                      "item": {
+                        "item": {},
+                        "sideColor": "hotpink"
+                      },
+                      "sideColor": "blue"
+                    },
+                    "sideColor": "hotpink"
+                  },
+                  "sideColor": "hotpink"
+                },
+                "sideColor": "blue"
+              },
+              "sideColor": "hotpink"
+            },
+            "sideColor": "hotpink"
+          },
+          "sideColor": "hotpink"
+        },
+        "sideColor": "hotpink"
+      },
+      "sideColor": "green"
+    },
+    "sideColor": "hotpink"
   }
 }
