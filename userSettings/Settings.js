@@ -6,16 +6,17 @@ let colorChanger = document.getElementById('js-colorChanger');
 let colorChangerContent = document.getElementById('js-colorChangerContent')
 let ddColorContentIsShowing = true;
 
-let userSettingsButton = document.getElementById('js-userSettingsIcon');
+let userSettingsIcon = document.getElementById('js-userSettingsIcon');
+
 
 settingButton.addEventListener('click', () => {
     if (!ddGeneralContent) {
         settingContent.classList.add('hidden');
         colorChangerContent.classList.add('hidden');
-
     } else {
         settingContent.classList.remove('hidden');
-        //userSettingsButton.classList.remove('hidden');
+        userSettingsIcon.classList.remove('hidden');
+        
     }
 
     ddGeneralContent = !ddGeneralContent;
@@ -24,11 +25,13 @@ settingButton.addEventListener('click', () => {
 colorChanger.addEventListener('click', () => {
     if (!ddColorContentIsShowing) {
         colorChangerContent.classList.add('hidden');
-        userSettingsButton.classList.remove('hidden');
+
+        userSettingsIcon.classList.remove('hidden');
 
     } else {
         colorChangerContent.classList.remove('hidden');
-        userSettingsButton.classList.add('hidden');
+
+        userSettingsIcon.classList.add('hidden');
     }
 
     const colorOne = document.getElementById('colorOne');
