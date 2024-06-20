@@ -1,25 +1,34 @@
 let settingButton = document.getElementById('js-dd-button');
 let settingContent = document.getElementById('js-dd-content');
-let ddGeneralContent = false;
+let ddGeneralContent = true;
 
 let colorChanger = document.getElementById('js-colorChanger');
 let colorChangerContent = document.getElementById('js-colorChangerContent')
-let ddColorContentIsShowing = false;
+let ddColorContentIsShowing = true;
+
+let userSettingsButton = document.getElementById('js-userSettingsIcon');
 
 settingButton.addEventListener('click', () => {
-    if (ddGeneralContent) {
+    if (!ddGeneralContent) {
         settingContent.classList.add('hidden');
+        colorChangerContent.classList.add('hidden');
+
     } else {
         settingContent.classList.remove('hidden');
+        //userSettingsButton.classList.remove('hidden');
     }
+
     ddGeneralContent = !ddGeneralContent;
 })
 
 colorChanger.addEventListener('click', () => {
-    if (ddColorContentIsShowing) {
+    if (!ddColorContentIsShowing) {
         colorChangerContent.classList.add('hidden');
+        userSettingsButton.classList.remove('hidden');
+
     } else {
         colorChangerContent.classList.remove('hidden');
+        userSettingsButton.classList.add('hidden');
     }
 
     const colorOne = document.getElementById('colorOne');
