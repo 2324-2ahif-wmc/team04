@@ -39,8 +39,8 @@ colorChanger.addEventListener('click', () => {
     document.querySelectorAll(".backgroundColor_option").forEach(button => {
         button.addEventListener('click', function () {
             const color = this.getAttribute("data-color");
-         //   document.body.style.backgroundColor = color;
-        //    colorOne.style.backgroundColor = color;
+            document.body.style.backgroundColor = color;
+            colorOne.style.backgroundColor = color;
 
             // Hintergrundfarbe in der db.json speichern
             fetch('http://localhost:3000/backgrounds', {
@@ -48,7 +48,7 @@ colorChanger.addEventListener('click', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ backgroundColor: color })
+                body: JSON.stringify({backgroundColor: color})
             })
                 .then(response => response.json())
                 .then(data => {
@@ -57,6 +57,7 @@ colorChanger.addEventListener('click', () => {
                 .catch(error => {
                     console.error('Fehler beim Speichern:', error);
                 });
+
         });
     });
     document.querySelectorAll(".sideColor").forEach(button => {
@@ -64,19 +65,19 @@ colorChanger.addEventListener('click', () => {
             const color = this.getAttribute("data-color");
             colorTwo.style.backgroundColor = color;
 
-            let sideColor=null;
+            let sideColor = null;
 
             if (color === '#e3d4a5') {
-               // keyboard.style.backgroundColor = '#525252';
-            //    volumeBox.style.backgroundColor = '#525252';
+                keyboard.style.backgroundColor = '#525252';
+                  volumeBox.style.backgroundColor = '#525252';
 
-                sideColor='#525252';
+                sideColor = '#525252';
 
             } else {
-             //   keyboard.style.backgroundColor = color;
-              //  volumeBox.style.backgroundColor = color;
+                   keyboard.style.backgroundColor = color;
+                 volumeBox.style.backgroundColor = color;
 
-                sideColor=color;
+                sideColor = color;
             }
 
             // SideColor in der db.json speichern
@@ -85,7 +86,7 @@ colorChanger.addEventListener('click', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ sideColor: sideColor })
+                body: JSON.stringify({sideColor: sideColor})
             })
                 .then(response => response.json())
                 .then(data => {
@@ -96,7 +97,6 @@ colorChanger.addEventListener('click', () => {
                 });
 
         })
-
 
 
     });
