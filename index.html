@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Einbindung von chart.js -->
     <script defer src="scripts/script.js"></script>
     <script defer src="userSettings/Settings.js"></script>
+    <script defer src="scripts/musicNotes.js"></script>
 </head>
 <body>
 
@@ -49,7 +50,7 @@
                     <button class="sideColor minWidth" data-color="#e3d4a5" style="background-color: #e3d4a5"></button>
                 </div>
             </div>
-            <span id="userSettingsSpace"><img src="images/userSettingsIcon.png" id="js-userSettingsIcon" width="53" height="53"></span>
+            <span id="userSettingsSpace"><img src="images/userSettingsIcon.png" id="js-userSettingsIcon" class="hidden" width="53" height="53"></span>
             <div class="hidden" id="js-userSettingsContent"></div>
             <!-- <span><img src="image3.jpg"></span>  zu viel Aufwand-->
         </div>
@@ -68,9 +69,12 @@
     </label>
 </div>
 
-<div id="chart">
+<div id="js-chart">
     <canvas height="200" id="js-synthDiagramm" width="400"></canvas>
 </div>
+
+<div id="js-ChartToMusicSwitchButton" class="switchButton"> ᐳ </div>
+<div id="js-MusicToChartSwitchButton" class="switchButton hidden"> ᐸ </div>
 
 <div id="positioningKeyboard">
     <ul id="keyboard"> <!-- Liste mit Noten -->

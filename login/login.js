@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', loadBackgroundColor,() => {
                 if (user) {
                     const {password, ...userWithoutPassword} = user;
                     localStorage.setItem('user', JSON.stringify(userWithoutPassword));
+
+
+
                     window.location.href = '../index.html';
                 } else {
                     alert('sign in failed');
