@@ -1,6 +1,22 @@
+// Funktion, um die Hintergrundfarbe aus der db.json zu laden
+function loadBackgroundColor() {
+    fetch('http://localhost:3000/backgrounds')
+        .then(response => response.json())
+        .then(data => {
+            const color = data.backgroundColor;
+            if (color) {
+                document.body.style.backgroundColor = color;
+                // document.getElementById('colorOne').style.backgroundColor = color;
+            }
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden der Hintergrundfarbe:', error);
+        });
+}
+
 const endpoint = 'http://localhost:3000/users';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',loadBackgroundColor, () => {
     const signUpForm = document.getElementById('sign-up-form');
 
     const togglePassword = document.querySelector('#togglePassword');
