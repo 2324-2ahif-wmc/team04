@@ -44,8 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert('sign up failed');
         }
-
-
     });
 
     async function getUsers() {
