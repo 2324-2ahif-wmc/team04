@@ -403,7 +403,34 @@ html {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*chart*/
-#chart {
+#js-chart {
+    position: absolute;
+    left: 10%;
+    top: 2%;
+    height: 55vh;
+    width: 60vw;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*sheet music*/
+.switchButton{
+    color: hsl(0, 0%, 32%);
+    font-size: 2rem;
+    width: 2.5rem;
+    height:2.5rem;
+    position: absolute;
+    top: 35%;
+}
+
+#js-ChartToMusicSwitchButton{
+    left: 96%
+}
+
+#js-MusicToChartSwitchButton{
+    left: 2%;
+}
+
+#js-sheetNoteMusic{
+    color: white;
     position: absolute;
     left: 10%;
     top: 2%;

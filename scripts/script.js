@@ -1,9 +1,44 @@
 let click = new Audio('/audio/click.wav');
 playClick();
 
+function loadBackgroundColor() {
+    fetch('http://localhost:3000/backgrounds')
+        .then(response => response.json())
+        .then(data => {
+            const color = data.backgroundColor;
+            if (color) {
+                document.body.style.backgroundColor = color;
+                document.getElementById('colorOne').style.backgroundColor = color;
+            }
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden der Hintergrundfarbe:', error);
+        });
+}
+
+function loadSideColor() {
+    fetch('http://localhost:3000/sideColors')
+        .then(response => response.json())
+        .then(data => {
+            const color = data.sideColor;
+            if (color) {
+                document.getElementById('keyboard').style.backgroundColor = color;
+                document.getElementById('volumeBox').style.backgroundColor = color;
+                document.getElementById('colorTwo').style.backgroundColor = color;
+                // Farbe Notenlabel
+            }
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden des Side Colors:', error);
+        });
+}
+
+
 //Schalter für Synthesizer
 document.addEventListener('DOMContentLoaded', function () { //wenn alles geladen ist
     let powerSwitch = document.getElementById('js-power-switch');
+    loadBackgroundColor();
+    loadSideColor();
 
     powerSwitch.addEventListener('change', function () {
         if (powerSwitch.checked) {
@@ -307,6 +342,7 @@ var synthDiagramm = new Chart(ctx, {
 
 });
 
+
 // Funktion zum Aktualisieren des Diagramms
 function addDataToChart(note, frequency) {
     const currentTime = synthDiagramm.data.labels.length + 's'; // Zeit in Sekunden hinzufügen
@@ -364,4 +400,6 @@ document.querySelectorAll(".sideColor").forEach(button => {
 
 
 });
+
+
 
