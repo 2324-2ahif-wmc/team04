@@ -46,14 +46,17 @@
                                                                                         "item": {
                                                                                           "item": {
                                                                                             "item": {
-                                                                                              "item": {},
-                                                                                              "backgroundColor": "lightpink"
+                                                                                              "item": {
+                                                                                                "item": {},
+                                                                                                "backgroundColor": "lightpink"
+                                                                                              },
+                                                                                              "backgroundColor": "lightgreen"
                                                                                             },
-                                                                                            "backgroundColor": "lightgreen"
+                                                                                            "backgroundColor": "lightblue"
                                                                                           },
-                                                                                          "backgroundColor": "lightblue"
+                                                                                          "backgroundColor": "lightgreen"
                                                                                         },
-                                                                                        "backgroundColor": "lightgreen"
+                                                                                        "backgroundColor": "#202020"
                                                                                       },
                                                                                       "backgroundColor": "#202020"
                                                                                     },
@@ -73,25 +76,25 @@
                                                                       },
                                                                       "backgroundColor": "#202020"
                                                                     },
-                                                                    "backgroundColor": "#202020"
+                                                                    "backgroundColor": "lightblue"
                                                                   },
                                                                   "backgroundColor": "lightblue"
                                                                 },
                                                                 "backgroundColor": "lightblue"
                                                               },
-                                                              "backgroundColor": "lightblue"
+                                                              "backgroundColor": "lightpink"
                                                             },
-                                                            "backgroundColor": "lightpink"
+                                                            "backgroundColor": "lightgreen"
                                                           },
-                                                          "backgroundColor": "lightgreen"
+                                                          "backgroundColor": "lightpink"
                                                         },
                                                         "backgroundColor": "lightpink"
                                                       },
                                                       "backgroundColor": "lightpink"
                                                     },
-                                                    "backgroundColor": "lightpink"
+                                                    "backgroundColor": "#202020"
                                                   },
-                                                  "backgroundColor": "#202020"
+                                                  "backgroundColor": "lightblue"
                                                 },
                                                 "backgroundColor": "lightblue"
                                               },
@@ -103,41 +106,41 @@
                                         },
                                         "backgroundColor": "lightblue"
                                       },
-                                      "backgroundColor": "lightblue"
+                                      "backgroundColor": "lightgreen"
                                     },
-                                    "backgroundColor": "lightgreen"
+                                    "backgroundColor": "lightpink"
                                   },
-                                  "backgroundColor": "lightpink"
+                                  "backgroundColor": "lightblue"
                                 },
-                                "backgroundColor": "lightblue"
+                                "backgroundColor": "lightpink"
                               },
                               "backgroundColor": "lightpink"
                             },
-                            "backgroundColor": "lightpink"
+                            "backgroundColor": "lightgreen"
                           },
-                          "backgroundColor": "lightgreen"
+                          "backgroundColor": "lightpink"
                         },
-                        "backgroundColor": "lightpink"
+                        "backgroundColor": "lightgreen"
                       },
                       "backgroundColor": "lightgreen"
                     },
                     "backgroundColor": "lightgreen"
                   },
-                  "backgroundColor": "lightgreen"
+                  "backgroundColor": "lightpink"
                 },
                 "backgroundColor": "lightpink"
               },
               "backgroundColor": "lightpink"
             },
-            "backgroundColor": "lightpink"
+            "backgroundColor": "lightgreen"
           },
-          "backgroundColor": "lightgreen"
+          "backgroundColor": "lightpink"
         },
         "backgroundColor": "lightpink"
       },
       "backgroundColor": "lightpink"
     },
-    "backgroundColor": "lightpink"
+    "backgroundColor": "lightblue"
   },
   "sideColors": {
     "item": {
